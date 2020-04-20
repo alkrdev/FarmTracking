@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30014.187
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FarmTrackerBackend", "FarmTrackerBackend.csproj", "{02DFCEB4-C6AD-4DCB-A18B-CC38D2EA8125}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02DFCEB4-C6AD-4DCB-A18B-CC38D2EA8125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02DFCEB4-C6AD-4DCB-A18B-CC38D2EA8125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02DFCEB4-C6AD-4DCB-A18B-CC38D2EA8125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02DFCEB4-C6AD-4DCB-A18B-CC38D2EA8125}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7AAEE40C-C5C7-4C48-92A5-6F66634B3EA9}
+	EndGlobalSection
+EndGlobal
