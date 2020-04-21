@@ -10,10 +10,6 @@ namespace FarmTrackingFrontend.Pages
 {
     public class IndexModel : PageModel
     {
-
-        [BindProperty(SupportsGet = true)]
-        public Machine Machine { get; set; }
-
         public IEnumerable<ActiveMachine> activeMachines { get; set; }
 
         public IndexModel()
@@ -21,7 +17,7 @@ namespace FarmTrackingFrontend.Pages
 
         }
 
-        public async void OnGet() {
+        public async Task OnGetAsync() {
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync("https://localhost:44387/activemachines");
 
@@ -29,6 +25,7 @@ namespace FarmTrackingFrontend.Pages
             {
                 activeMachines = await response.Content.ReadAsAsync<IEnumerable<ActiveMachine>>();
             }
+            System.Console.WriteLine(activeMachines.ToString());
 
         }
     }

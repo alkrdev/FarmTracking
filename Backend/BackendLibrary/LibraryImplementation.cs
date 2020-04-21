@@ -104,8 +104,18 @@ namespace BackendLibrary {
         public DbSet<ActiveMachine> GetAllActiveMachines()
         {
             return farmerDb.ActiveMachines;
-        }   
-        
+        }
+
+        public DbSet<Machine> GetAllMachines()
+        {
+            return farmerDb.Machines;
+        }
+        public DbSet<Field> GetAllFields()
+        {
+            return farmerDb.Fields;
+        }
+
+
         // Adjust Machinery
 
         //StartMachine

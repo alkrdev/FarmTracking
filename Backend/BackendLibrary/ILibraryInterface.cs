@@ -36,6 +36,8 @@ namespace BackendLibrary {
 
         // Field Information
 
-        DbSet<ActiveMachine> GetAllActiveMachines(); 
+        DbSet<ActiveMachine> GetAllActiveMachines();
+        DbSet<Machine> GetAllMachines();
+        DbSet<Field> GetAllFields();
     }
 }
