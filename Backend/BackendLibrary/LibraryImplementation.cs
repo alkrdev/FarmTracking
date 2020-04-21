@@ -91,11 +91,10 @@ namespace BackendLibrary {
             return updatedActiveMachine;
         }
 
-        public ActiveMachine DeleteActiveMachine(int activeMachineId)
+        public void DeleteActiveMachine(int activeMachineId)
         {
             var toDelete = farmerDb.ActiveMachines.Find(activeMachineId);
-            farmerDb.ActiveMachines.Remove(toDelete);
-            return toDelete;
+            farmerDb.ActiveMachines.Remove(toDelete);            
         }
 
 

@@ -24,7 +24,7 @@ namespace Backend.Controllers {
         {
             var query = from field in _libraryInterface.GetAllFields()
                         join machine in _libraryInterface.GetAllMachines()
-                            on field.ActiveMachine.Id equals machine.Id
+                            on field.ActiveMachine.MachineId equals machine.Id
                         join activemachine in _libraryInterface.GetAllActiveMachines()
                             on machine.Id equals activemachine.MachineId
                         select new { id = activemachine.Id, fieldname = field.Name, machinename = machine.Name, timeleft = activemachine.TimeLeft };
@@ -42,11 +42,11 @@ namespace Backend.Controllers {
 
         // DELETE api/<controller>/5
         [HttpDelete("{id}")]
-        public ActiveMachine Delete(int id)
+        public void Delete(int id)
         {
-            var result = _libraryInterface.DeleteActiveMachine(id);
+            _libraryInterface.DeleteActiveMachine(id);
             _libraryInterface.Commit();
-            return result;
+            
         }
 
         // Start Machine

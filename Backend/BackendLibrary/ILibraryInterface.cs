@@ -31,7 +31,7 @@ namespace BackendLibrary {
         ActiveMachine CreateActiveMachine(ActiveMachine newActiveMachine);
         ActiveMachine GetActiveMachine(int activeMachineId);
         ActiveMachine UpdateActiveMachine(ActiveMachine updatedActiveMachine);
-        ActiveMachine DeleteActiveMachine(int activeMachineId);
+        void DeleteActiveMachine(int activeMachineId);
 
 
         // Field Information
