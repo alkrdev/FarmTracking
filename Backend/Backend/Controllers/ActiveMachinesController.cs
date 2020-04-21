@@ -11,18 +11,25 @@ namespace Backend.Controllers {
     [ApiController]
     [Route("[controller]")]
     public class ActiveMachinesController : ControllerBase {
-        private readonly ILibraryInterface libraryInterface;
+        private readonly ILibraryInterface _libraryInterface;
 
         public ActiveMachinesController(ILibraryInterface libraryInterface)
         {
-            this.libraryInterface = libraryInterface;
+            _libraryInterface = libraryInterface;
         }
 
 
         [HttpGet]
         public IEnumerable<ActiveMachine> Get() =>
-            libraryInterface.GetAllActiveMachines()
-                            .OrderBy(x => x.TimeLeft);
+            _libraryInterface.GetAllActiveMachines()
+                             .OrderBy(x => x.TimeLeft);
+
+        [HttpPost]
+        public void Post (Machine machine)
+        {
+            _libraryInterface.CreateMachine(machine);
+            _libraryInterface.Commit();
+        }
 
         // Start Machine
         // Show All Machines

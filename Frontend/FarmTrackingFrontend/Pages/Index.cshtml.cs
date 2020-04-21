@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -22,8 +23,13 @@ namespace FarmTrackingFrontend.Pages
 
         }
 
-        public void OnGet()
-        {
+        public async void OnGet() {
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync("https://localhost:44387/activemachines");
+
+            if (response.IsSuccessStatusCode) {
+                activeMachines = await response.Content.ReadAsAsync<ActiveMachine>();
+            }
 
         }
     }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace BackendLibrary.Models {
@@ -17,7 +14,7 @@ namespace BackendLibrary.Models {
         public string Name { get; set; }
 
         [DisplayName("Time Of Task")]
-        public TimeSpan RunTime { get; set; }
+        public double RunTime { get; set; }
 
         [DisplayName("Field")]
         public Field Field { get; set; }

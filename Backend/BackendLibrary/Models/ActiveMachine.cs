@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
 
 namespace BackendLibrary.Models {
     public class ActiveMachine {
@@ -22,7 +18,7 @@ namespace BackendLibrary.Models {
         public int FieldId { get; set; }
 
         [DisplayName("Time Left")]
-        public TimeSpan TimeLeft { get; set; }
+        public double TimeLeft { get; set; }
         public bool Active { get; set; }
     }
 }

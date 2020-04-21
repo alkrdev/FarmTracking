@@ -1,5 +1,4 @@
-﻿using System;
-using BackendLibrary.Models;
+﻿using BackendLibrary.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BackendLibrary {

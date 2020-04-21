@@ -1,7 +1,4 @@
 ﻿using BackendLibrary.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Microsoft.EntityFrameworkCore;
 
 namespace BackendLibrary {
@@ -10,7 +7,7 @@ namespace BackendLibrary {
 
         public LibraryImplementation(LibraryContext db)
         {
-            this.farmerDb = db;
+            farmerDb = db;
         }
 
         // Database - Commit
@@ -42,7 +39,7 @@ namespace BackendLibrary {
 
         public Machine DeleteMachine(int machineId)
         {
-            Machine toDelete = farmerDb.Machines.Find(machineId);
+            var toDelete = farmerDb.Machines.Find(machineId);
             farmerDb.Machines.Remove(toDelete);
             return toDelete;
         }
@@ -69,7 +66,7 @@ namespace BackendLibrary {
 
         public Field DeleteField(int fieldId)
         {
-            Field toDelete = farmerDb.Fields.Find(fieldId);
+            var toDelete = farmerDb.Fields.Find(fieldId);
             farmerDb.Fields.Remove(toDelete);
             return toDelete;
         }
@@ -96,7 +93,7 @@ namespace BackendLibrary {
 
         public ActiveMachine DeleteActiveMachine(int activeMachineId)
         {
-            ActiveMachine toDelete = farmerDb.ActiveMachines.Find(activeMachineId);
+            var toDelete = farmerDb.ActiveMachines.Find(activeMachineId);
             farmerDb.ActiveMachines.Remove(toDelete);
             return toDelete;
         }
@@ -107,8 +104,10 @@ namespace BackendLibrary {
         public DbSet<ActiveMachine> GetAllActiveMachines()
         {
             return farmerDb.ActiveMachines;
-        }
-
+        }   
         
+        // Adjust Machinery
+
+        //StartMachine
     }
 }
