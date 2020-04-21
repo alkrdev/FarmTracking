@@ -1,4 +1,4 @@
-﻿@page "{Id:int}"
+﻿@page 
 @model IndexModel
 @{
     ViewData["Title"] = "Overview";
@@ -16,18 +16,23 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var machine in Model.activeMachines)
+        @if (Model.activeMachines != null)
         {
-            <tr>
-                <td>@machine.MachineName</td>
-                <td>@machine.FieldName</td>
-                <td>@machine.TimeLeft</td>
-                <td>
-                    <form method="delete">
-                        <button asp-page-handler="Delete" asp-route-id="@machine.Id" class="btn btn-danger" type="submit">Delete</button>
-                    </form>
-                </td>
-            </tr>
+            @foreach (var machine in Model.activeMachines)
+            {
+                <tr>
+                    <td>@machine.MachineName</td>
+                    <td>@machine.FieldName</td>
+                    <td>@machine.TimeLeft</td>
+                    <td>
+                        <form method="post" asp-action="DeleteActiveMachine" asp-route-id="@machine.Id" >
+                            <a asp-controller="Administration" asp-action="EditUser"
+                               asp-route-id="@machine.Id" class="btn btn-primary">Edit</a>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
         }
     </tbody>
 </table>

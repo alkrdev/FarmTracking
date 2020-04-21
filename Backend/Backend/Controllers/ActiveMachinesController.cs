@@ -27,7 +27,9 @@ namespace Backend.Controllers {
                             on field.ActiveMachine.Id equals machine.Id
                         join activemachine in _libraryInterface.GetAllActiveMachines()
                             on machine.Id equals activemachine.MachineId
-                        select new {id = activemachine.Id, fieldname = field.Name, machinename = machine.Name, timeleft = activemachine.TimeLeft };
+                        select new { id = activemachine.Id, fieldname = field.Name, machinename = machine.Name, timeleft = activemachine.TimeLeft };
+
+
 
             return query.OrderBy(x => x.timeleft);
         }
@@ -40,9 +42,9 @@ namespace Backend.Controllers {
 
         // DELETE api/<controller>/5
         [HttpDelete("{id}")]
-        public Machine Delete(int id)
+        public ActiveMachine Delete(int id)
         {
-            var result = _libraryInterface.DeleteMachine(id);
+            var result = _libraryInterface.DeleteActiveMachine(id);
             _libraryInterface.Commit();
             return result;
         }

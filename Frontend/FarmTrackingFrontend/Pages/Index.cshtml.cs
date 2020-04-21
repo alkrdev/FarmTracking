@@ -29,16 +29,23 @@ namespace FarmTrackingFrontend.Pages
                 activeMachines = await response.Content.ReadAsAsync<IEnumerable<ActiveMachine>>();
             }
         }
-        public async Task OnDeleteAsync(int id)
+        public async Task<HttpResponseMessage> DeleteActiveMachine(int id)
         {
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.DeleteAsync("https://localhost:44387/activemachines/" + id);
 
             if (response.IsSuccessStatusCode)
             {
-                // Falaffel
+                return response;
             }
 
+            return response;
+        }
+
+
+        public void OnPost(int id)
+        {
+            DeleteActiveMachine(id);
         }
     }
 }
