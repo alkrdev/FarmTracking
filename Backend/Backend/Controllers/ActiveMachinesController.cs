@@ -11,16 +11,21 @@ namespace Backend.Controllers {
     [ApiController]
     [Route("[controller]")]
     public class ActiveMachinesController : ControllerBase {
-        private readonly ILogger<ActiveMachinesController> _logger;
+        private readonly ILibraryInterface libraryInterface;
 
-        public ActiveMachinesController(ILogger<ActiveMachinesController> logger) {
-            _logger = logger;
+        public ActiveMachinesController(ILibraryInterface libraryInterface)
+        {
+            this.libraryInterface = libraryInterface;
         }
+
 
         [HttpGet]
-        public IEnumerable<ActiveMachine> Get() {
-            LibraryContext con = new LibraryContext();
-            return con.ActiveMachines;
-        }
+        public IEnumerable<ActiveMachine> Get() =>
+            libraryInterface.GetAllActiveMachines()
+                            .OrderBy(x => x.TimeLeft);
+
+        // Start Machine
+        // Show All Machines
+
     }
 }

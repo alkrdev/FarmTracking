@@ -21,7 +21,7 @@ namespace BackendLibrary.Models {
         [DisplayName("Field Id")]
         public int FieldId { get; set; }
 
-        [DisplayName("Time Of Task")]
+        [DisplayName("Time Left")]
         public TimeSpan TimeLeft { get; set; }
     }
 }

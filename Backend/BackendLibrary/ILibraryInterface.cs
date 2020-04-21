@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using BackendLibrary.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BackendLibrary {
-    interface LibraryInterface {
+    public interface ILibraryInterface {
 
 
         // Database Commit
@@ -24,5 +25,17 @@ namespace BackendLibrary {
         Field GetField(int fieldId);
         Field UpdateField(Field updatedField);
         Field DeleteField(int fieldId);
+
+        // CRUD - ActiveMachines
+
+        ActiveMachine CreateActiveMachine(ActiveMachine newActiveMAchine);
+        ActiveMachine GetActiveMachine(int activeMachineId);
+        ActiveMachine UpdateActiveMachine(ActiveMachine updatedActiveMachine);
+        ActiveMachine DeleteActiveMachine(int activeMachineId);
+
+
+        // Field Information
+
+        DbSet<ActiveMachine> GetAllActiveMachines(); 
     }
 }

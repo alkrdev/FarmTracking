@@ -2,10 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace BackendLibrary {
-    class LibraryImplementation : LibraryInterface {
+    public class LibraryImplementation : ILibraryInterface {
         private readonly LibraryContext farmerDb;
 
         public LibraryImplementation(LibraryContext db)
@@ -13,14 +13,15 @@ namespace BackendLibrary {
             this.farmerDb = db;
         }
 
-        // Database Commit
+        // Database - Commit
 
         public int Commit()
         {
             return farmerDb.SaveChanges();
         }
 
-        // CRUD Machines
+
+        // CRUD - Machines
 
         public Machine CreateMachine(Machine newMachine)
         {
@@ -47,7 +48,7 @@ namespace BackendLibrary {
         }
 
 
-        // CRUD Fields
+        // CRUD - Fields
 
         public Field CreateField(Field newField)
         {
@@ -72,5 +73,42 @@ namespace BackendLibrary {
             farmerDb.Fields.Remove(toDelete);
             return toDelete;
         }
+
+
+        // CRUD - ActiveMachines
+
+        public ActiveMachine CreateActiveMachine(ActiveMachine newActiveMachine)
+        {
+            farmerDb.ActiveMachines.Add(newActiveMachine);
+            return newActiveMachine;
+        }
+
+        public ActiveMachine GetActiveMachine(int activeMachineId)
+        {
+            return farmerDb.ActiveMachines.Find(activeMachineId);
+        }
+
+        public ActiveMachine UpdateActiveMachine(ActiveMachine updatedActiveMachine)
+        {
+            farmerDb.ActiveMachines.Update(updatedActiveMachine);
+            return updatedActiveMachine;
+        }
+
+        public ActiveMachine DeleteActiveMachine(int activeMachineId)
+        {
+            ActiveMachine toDelete = farmerDb.ActiveMachines.Find(activeMachineId);
+            farmerDb.ActiveMachines.Remove(toDelete);
+            return toDelete;
+        }
+
+
+        // Field Information
+
+        public DbSet<ActiveMachine> GetAllActiveMachines()
+        {
+            return farmerDb.ActiveMachines;
+        }
+
+        
     }
 }
