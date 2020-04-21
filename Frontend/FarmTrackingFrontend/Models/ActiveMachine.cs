@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
 
-namespace BackendLibrary.Models {
+namespace FarmTrackingFrontend.Models
+{
     public class ActiveMachine {
         [DisplayName("Active Machine Id")]
         public int Id { get; set; }

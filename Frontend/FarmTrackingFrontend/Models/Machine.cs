@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-
-namespace BackendLibrary.Models {
+﻿namespace FarmTrackingFrontend.Models
+{
     public class Machine
     {
         public int Id { get; set; }

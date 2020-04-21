@@ -28,7 +28,7 @@ namespace BackendLibrary {
 
         // CRUD - ActiveMachines
 
-        ActiveMachine CreateActiveMachine(ActiveMachine newActiveMAchine);
+        ActiveMachine CreateActiveMachine(ActiveMachine newActiveMachine);
         ActiveMachine GetActiveMachine(int activeMachineId);
         ActiveMachine UpdateActiveMachine(ActiveMachine updatedActiveMachine);
         ActiveMachine DeleteActiveMachine(int activeMachineId);
