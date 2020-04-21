@@ -6,7 +6,7 @@ namespace BackendLibrary {
     public class LibraryContext : DbContext {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySql("Server = localhost; Database = farmerdb; Uid = root; Pwd = Jagex2233;");
+            optionsBuilder.UseMySql("Server = localhost; Database = farmerdb; Uid = root; Pwd =;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

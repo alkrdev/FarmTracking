@@ -10,5 +10,6 @@ namespace BackendLibrary.Models {
         public int MachineId { get; set; }
         public int FieldId { get; set; }
         public TimeSpan TimeLeft { get; set; }
+        public bool Active { get; set; }
     }
 }
