@@ -12,6 +12,9 @@ namespace FarmTrackingFrontend.Pages
     {
         public IEnumerable<ActiveMachine> activeMachines { get; set; }
 
+        [BindProperty(SupportsGet = true)]
+        public ActiveMachine machine { get; set; }
+
         public IndexModel()
         {
 
@@ -24,7 +27,18 @@ namespace FarmTrackingFrontend.Pages
             if (response.IsSuccessStatusCode)
             {
                 activeMachines = await response.Content.ReadAsAsync<IEnumerable<ActiveMachine>>();
-            } 
+            }
+        }
+        public async Task OnDeleteAsync(int id)
+        {
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.DeleteAsync("https://localhost:44387/activemachines/" + id);
+
+            if (response.IsSuccessStatusCode)
+            {
+                // Falaffel
+            }
+
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{Id:int}"
 @model IndexModel
 @{
     ViewData["Title"] = "Overview";
@@ -12,7 +12,6 @@
             <th>Machine name</th>
             <th>Field name</th>
             <th>Task ETA</th>
-            <th>Machine details</th>
             <th>Stop machine</th>
         </tr>
     </thead>
@@ -20,11 +19,14 @@
         @foreach (var machine in Model.activeMachines)
         {
             <tr>
-                <td>@machine</td>
-                <td>2</td>
-                <td>3</td>
-                <td><a asp-page="" asp-route-machineId="">Machine details</a></td>
-                <td><button asp-route-machineId="">Stop machine</button></td>
+                <td>@machine.MachineName</td>
+                <td>@machine.FieldName</td>
+                <td>@machine.TimeLeft</td>
+                <td>
+                    <form method="delete">
+                        <button asp-page-handler="Delete" asp-route-id="@machine.Id" class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>
