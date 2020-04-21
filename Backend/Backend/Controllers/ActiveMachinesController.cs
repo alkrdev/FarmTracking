@@ -33,10 +33,18 @@ namespace Backend.Controllers {
         }
 
         [HttpPost]
-        public void Post (Machine machine)
-        {
+        public void Post(Machine machine) {
             _libraryInterface.CreateMachine(machine);
             _libraryInterface.Commit();
+        }
+
+        // DELETE api/<controller>/5
+        [HttpDelete("{id}")]
+        public Machine Delete(int id)
+        {
+            var result = _libraryInterface.DeleteMachine(id);
+            _libraryInterface.Commit();
+            return result;
         }
 
         // Start Machine
