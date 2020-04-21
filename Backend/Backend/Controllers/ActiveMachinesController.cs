@@ -27,7 +27,7 @@ namespace Backend.Controllers {
                             on field.ActiveMachine.Id equals machine.Id
                         join activemachine in _libraryInterface.GetAllActiveMachines()
                             on machine.Id equals activemachine.MachineId
-                        select new { fieldname = field.Name, machinename = machine.Name, timeleft = activemachine.TimeLeft };
+                        select new {id = activemachine.Id, fieldname = field.Name, machinename = machine.Name, timeleft = activemachine.TimeLeft };
 
             return query.OrderBy(x => x.timeleft);
         }
