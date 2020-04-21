@@ -18,7 +18,7 @@ namespace Backend.Controllers {
             _libraryInterface = libraryInterface;
         }
 
-
+        // Localhost/ActiveMachines/
         [HttpGet]
         public IEnumerable<ActiveMachine> Get() =>
             _libraryInterface.GetAllActiveMachines()

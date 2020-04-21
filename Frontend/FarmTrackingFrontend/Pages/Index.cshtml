@@ -17,14 +17,15 @@
         </tr>
     </thead>
     <tbody>
-        <!--Razor foreach-->
-        <tr>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td><a asp-page="" asp-route-machineId="">Machine details</a></td>
-            <td><button>Stop machine</button></td>
-        </tr>
-        <!--Razor foreach end-->
+        @foreach (var machine in BackendLibrary.Models.ActiveMachine)
+        {
+            <tr>
+                <td></td>
+                <td>2</td>
+                <td>3</td>
+                <td><a asp-page="" asp-route-machineId="">Machine details</a></td>
+                <td><button asp-route-machineId="">Stop machine</button></td>
+            </tr>
+        }
     </tbody>
 </table>

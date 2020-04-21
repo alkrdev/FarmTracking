@@ -1,0 +1,217 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "MachineSwag",
+    "version": "1.0"
+  },
+  "paths": {
+    "/ActiveMachines": {
+      "get": {
+        "tags": [
+          "ActiveMachines"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ActiveMachine"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ActiveMachine"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ActiveMachine"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TimeSpan": {
+        "type": "object",
+        "properties": {
+          "ticks": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "days": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "hours": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "milliseconds": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "minutes": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "seconds": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "totalDays": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "totalHours": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "totalMilliseconds": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "totalMinutes": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          },
+          "totalSeconds": {
+            "type": "number",
+            "format": "double",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Field": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "maxLength": 60,
+            "minLength": 2,
+            "pattern": "^[a-zA-ZæøåÆØÅ]+$",
+            "type": "string"
+          },
+          "activeMachine": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ActiveMachine"
+              }
+            ],
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Machine": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "maxLength": 60,
+            "minLength": 2,
+            "pattern": "^[a-zA-ZæøåÆØÅ]+$",
+            "type": "string"
+          },
+          "runTime": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TimeSpan"
+              }
+            ]
+          },
+          "field": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Field"
+              }
+            ],
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ActiveMachine": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "machine": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Machine"
+              }
+            ],
+            "nullable": true
+          },
+          "field": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Field"
+              }
+            ],
+            "nullable": true
+          },
+          "machineId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fieldId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timeLeft": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TimeSpan"
+              }
+            ]
+          },
+          "active": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

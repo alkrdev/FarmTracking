@@ -1,0 +1,53 @@
+﻿@page
+@model FarmTrackingFrontend.Pages.AddOrRemoveModel
+@{
+    ViewData["Title"] = "AddOrRemove";
+}
+
+<h1>AddOrRemove</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Machine.Name"></label>
+        <input asp-for="Machine.Name" class="form-control" />
+        <span asp-validation-for="Machine.Name"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Machine.RunTime"></label>
+        <input asp-for="Machine.RunTime" class="form-control" />
+        <span asp-validation-for="Machine.RunTime"></span>
+    </div>
+
+    <button type="submit" asp-page-handler="">Add machine</button>
+</form>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Machine.RunTime"></label>
+        <input asp-for="Machine.RunTime" class="form-control" />
+        <span asp-validation-for="Machine.RunTime"></span>
+    </div>
+
+    <button type="submit" asp-page-handler="">Remove machine</button>
+</form>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Field.Name"></label>
+        <input asp-for="Field.Name" class="form-control" />
+        <span asp-validation-for="Field.Name"></span>
+    </div>
+
+    <button type="submit" asp-page-handler="">Add field</button>
+</form>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Field.Name"></label>
+        <input asp-for="Field.Name" class="form-control" />
+        <span asp-validation-for="Field.Name"></span>
+    </div>
+
+    <button type="submit" asp-page-handler="">Remove field</button>
+</form>
