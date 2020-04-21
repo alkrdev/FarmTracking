@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using FarmTrackingFrontend.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using FarmTrackingFrontend.Models;
+
 
 namespace FarmTrackingFrontend.Pages
 {
@@ -24,9 +24,7 @@ namespace FarmTrackingFrontend.Pages
             if (response.IsSuccessStatusCode)
             {
                 activeMachines = await response.Content.ReadAsAsync<IEnumerable<ActiveMachine>>();
-            }
-            System.Console.WriteLine(activeMachines.ToString());
-
+            } 
         }
     }
 }
