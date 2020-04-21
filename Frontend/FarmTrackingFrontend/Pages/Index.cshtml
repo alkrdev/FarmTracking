@@ -13,16 +13,18 @@
             <th>Field name</th>
             <th>Task ETA</th>
             <th>Machine details</th>
+            <th>Stop machine</th>
         </tr>
     </thead>
     <tbody>
         <!--Razor foreach-->
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                @*<td><a asp-page="" asp-route-machineId="">Machine details</a></td>*@
-            </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td><a asp-page="" asp-route-machineId="">Machine details</a></td>
+            <td><button>Stop machine</button></td>
+        </tr>
         <!--Razor foreach end-->
     </tbody>
 </table>
