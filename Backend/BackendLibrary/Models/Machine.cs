@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace BackendLibrary.Models {
@@ -14,7 +15,9 @@ namespace BackendLibrary.Models {
         public string Name { get; set; }
 
         [DisplayName("Time Of Task")]
-        public double RunTime { get; set; }
+        [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Time)]
+        public DateTime RunTime { get; set; }
 
         [DisplayName("Field")]
         public Field Field { get; set; }
