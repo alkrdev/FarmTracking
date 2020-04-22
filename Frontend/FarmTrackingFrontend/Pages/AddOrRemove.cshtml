@@ -19,28 +19,18 @@
         <span asp-validation-for="Machine.RunTime"></span>
     </div>
 
-    <button type="submit" asp-page-handler="">Add machine</button>
+    <button class="btn btn-primary" type="submit" asp-page-handler="">Add machine</button>
 </form>
+
+<br />
 
 <form method="post">
-    <div class="form-group">
-        <label asp-for="Machine.RunTime"></label>
-        <input asp-for="Machine.RunTime" class="form-control" />
-        <span asp-validation-for="Machine.RunTime"></span>
-    </div>
+    <!-- INPUT THAT GETS LIST OF ALL MACHINES -->
 
-    <button type="submit" asp-page-handler="">Remove machine</button>
+    <button class="btn btn-danger" type="submit" asp-page-handler="">Remove machine</button>
 </form>
 
-<form method="post">
-    <div class="form-group">
-        <label asp-for="Field.Name"></label>
-        <input asp-for="Field.Name" class="form-control" />
-        <span asp-validation-for="Field.Name"></span>
-    </div>
-
-    <button type="submit" asp-page-handler="">Add field</button>
-</form>
+<br />
 
 <form method="post">
     <div class="form-group">
@@ -49,5 +39,13 @@
         <span asp-validation-for="Field.Name"></span>
     </div>
 
-    <button type="submit" asp-page-handler="">Remove field</button>
+    <button class="btn btn-primary" type="submit" asp-page-handler="">Add field</button>
+</form>
+
+<br />
+
+<form method="post">
+    <!-- INPUT THAT GETS LIST OF ALL FIELDS -->
+
+    <button class="btn btn-danger" type="submit" asp-page-handler="">Remove field</button>
 </form>

@@ -11,7 +11,7 @@ namespace BackendLibrary {
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ActiveMachine>()
-                .HasOne(a => a.Field)
+                .HasOne(a => a.field)
                 .WithOne(b => b.ActiveMachine);
         }
 
