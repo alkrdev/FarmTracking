@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace FarmTrackingFrontend.Models
 {
@@ -6,6 +7,6 @@ namespace FarmTrackingFrontend.Models
         public int Id { get; set; }
         public string MachineName { get; set; }
         public string FieldName { get; set; }
-        public double TimeLeft { get; set; }
+        public DateTime TimeLeft { get; set; }
     }
 }
