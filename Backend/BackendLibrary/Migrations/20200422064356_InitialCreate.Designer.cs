@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackendLibrary.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20200421075000_TimeSpanToDouble")]
-    partial class TimeSpanToDouble
+    [Migration("20200422064356_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,8 +34,8 @@ namespace BackendLibrary.Migrations
                     b.Property<int>("MachineId")
                         .HasColumnType("int");
 
-                    b.Property<double>("TimeLeft")
-                        .HasColumnType("double");
+                    b.Property<DateTime>("TimeLeft")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
@@ -77,8 +77,8 @@ namespace BackendLibrary.Migrations
                         .HasColumnType("varchar(60) CHARACTER SET utf8mb4")
                         .HasMaxLength(60);
 
-                    b.Property<double>("RunTime")
-                        .HasColumnType("double");
+                    b.Property<DateTime>("RunTime")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 

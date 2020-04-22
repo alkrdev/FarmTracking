@@ -14,7 +14,7 @@ namespace BackendLibrary.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(maxLength: 60, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -27,8 +27,8 @@ namespace BackendLibrary.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true),
-                    RunTime = table.Column<TimeSpan>(nullable: false),
+                    Name = table.Column<string>(maxLength: 60, nullable: false),
+                    RunTime = table.Column<DateTime>(nullable: false),
                     FieldId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
@@ -50,7 +50,8 @@ namespace BackendLibrary.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     MachineId = table.Column<int>(nullable: false),
                     FieldId = table.Column<int>(nullable: false),
-                    TimeLeft = table.Column<TimeSpan>(nullable: false)
+                    TimeLeft = table.Column<DateTime>(nullable: false),
+                    Active = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

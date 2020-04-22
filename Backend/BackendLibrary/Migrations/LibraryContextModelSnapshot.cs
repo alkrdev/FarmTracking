@@ -32,8 +32,8 @@ namespace BackendLibrary.Migrations
                     b.Property<int>("MachineId")
                         .HasColumnType("int");
 
-                    b.Property<double>("TimeLeft")
-                        .HasColumnType("double");
+                    b.Property<DateTime>("TimeLeft")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
