@@ -47,7 +47,7 @@ namespace BackendLibrary.Migrations
                     b.ToTable("ActiveMachines");
                 });
 
-            modelBuilder.Entity("BackendLibrary.Models.field", b =>
+            modelBuilder.Entity("BackendLibrary.Models.Field", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -63,7 +63,7 @@ namespace BackendLibrary.Migrations
                     b.ToTable("Fields");
                 });
 
-            modelBuilder.Entity("BackendLibrary.Models.machine", b =>
+            modelBuilder.Entity("BackendLibrary.Models.Machine", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -89,22 +89,22 @@ namespace BackendLibrary.Migrations
 
             modelBuilder.Entity("BackendLibrary.Models.ActiveMachine", b =>
                 {
-                    b.HasOne("BackendLibrary.Models.field", "field")
+                    b.HasOne("BackendLibrary.Models.Field", "Field")
                         .WithOne("ActiveMachine")
                         .HasForeignKey("BackendLibrary.Models.ActiveMachine", "FieldId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BackendLibrary.Models.machine", "machine")
+                    b.HasOne("BackendLibrary.Models.Machine", "Machine")
                         .WithMany()
                         .HasForeignKey("MachineId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("BackendLibrary.Models.machine", b =>
+            modelBuilder.Entity("BackendLibrary.Models.Machine", b =>
                 {
-                    b.HasOne("BackendLibrary.Models.field", "field")
+                    b.HasOne("BackendLibrary.Models.Field", "Field")
                         .WithMany()
                         .HasForeignKey("FieldId");
                 });

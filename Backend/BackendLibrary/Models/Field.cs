@@ -4,16 +4,16 @@ using System.ComponentModel.DataAnnotations;
 namespace BackendLibrary.Models {
     public class Field
     {
-        [DisplayName("field Id")]
+        [DisplayName("Field Id")]
         public int Id { get; set; }
 
         [Required]
         [StringLength(60, MinimumLength = 2)]
         [RegularExpression(@"^[a-zA-ZæøåÆØÅ]+$", ErrorMessage = "Kun danske bogstaver tilladt i {0}")]
-        [DisplayName("field Name")]
+        [DisplayName("Field Name")]
         public string Name { get; set; }
 
-        [DisplayName("Active machine")]
+        [DisplayName("Active Machine")]
         public ActiveMachine ActiveMachine { get; set; }
     }
 }
