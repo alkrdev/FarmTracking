@@ -30,8 +30,8 @@ namespace Backend.Controllers {
                         select new ActiveMachine
                         {
                             MachineId = activemachine.Id, 
-                            field = new Field { Name = field.Name }, 
-                            machine = new Machine{ Name = machine.Name }, 
+                            Field = new Field { Name = field.Name }, 
+                            Machine = new Machine{ Name = machine.Name }, 
                             TimeLeft = activemachine.TimeLeft
                         };
 
@@ -53,7 +53,7 @@ namespace Backend.Controllers {
             
         }
 
-        // Start machine
+        // Start Machine
         // Show All Machines
 
     }

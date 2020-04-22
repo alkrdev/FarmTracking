@@ -21,8 +21,8 @@
             @foreach (var machine in Model.activeMachines)
             {
                 <tr>
-                    <td>@machine.Id</td>
-                    <td>@machine.Machine</td>
+                    <td>@machine.Machine.Name</td>
+                    <td>@machine.Field.Name</td>
                     <td>@machine.TimeLeft</td>
                     <td>
                         <form method="post" asp-action="DeleteActiveMachine" asp-route-id="@machine.Id" >

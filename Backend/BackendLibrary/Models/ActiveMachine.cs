@@ -4,19 +4,19 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BackendLibrary.Models {
     public class ActiveMachine {
-        [DisplayName("Active machine Id")]
+        [DisplayName("Active Machine Id")]
         public int Id { get; set; }
 
-        [DisplayName("machine")]
-        public Machine machine { get; set; }
+        [DisplayName("Machine")]
+        public Machine Machine { get; set; }
 
-        [DisplayName("field")]
-        public Field field { get; set; }
+        [DisplayName("Field")]
+        public Field Field { get; set; }
 
-        [DisplayName("machine Id")]
+        [DisplayName("Machine Id")]
         public int MachineId { get; set; }
 
-        [DisplayName("field Id")]
+        [DisplayName("Field Id")]
         public int FieldId { get; set; }
 
         [DisplayName("Time Left")]

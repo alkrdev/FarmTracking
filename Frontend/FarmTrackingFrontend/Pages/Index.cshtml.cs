@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 using MachineSwag;
-
+using Newtonsoft.Json;
 
 
 namespace FarmTrackingFrontend.Pages
@@ -30,8 +30,9 @@ namespace FarmTrackingFrontend.Pages
 
             if (response.IsSuccessStatusCode)
             {
-                var result = await response.Content.ReadAsAsync<IQueryable<ActiveMachine>>();
-                activeMachines = result.ToList();
+                var result = response.Content.ReadAsStringAsync().Result;
+                var converted = JsonConvert.DeserializeObject<IEnumerable<ActiveMachine>>(result);
+                activeMachines = converted;
             }
         }
         public async Task<IActionResult> DeleteActiveMachine(int id)

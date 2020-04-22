@@ -98,7 +98,7 @@ namespace BackendLibrary {
         }
 
 
-        // field Information
+        // Field Information
 
         public DbSet<ActiveMachine> GetAllActiveMachines()
         {
