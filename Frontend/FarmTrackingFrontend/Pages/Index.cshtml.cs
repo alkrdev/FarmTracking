@@ -10,6 +10,7 @@ namespace FarmTrackingFrontend.Pages
 {
     public class IndexModel : PageModel
     {
+        
         public IEnumerable<ActiveMachine> activeMachines { get; set; }
 
         [BindProperty(SupportsGet = true)]
@@ -17,7 +18,7 @@ namespace FarmTrackingFrontend.Pages
 
         public IndexModel()
         {
-
+            
         }
 
         public async Task OnGetAsync() {
