@@ -1,6 +1,6 @@
-﻿using FarmTrackingFrontend.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using MachineSwag;
 
 namespace FarmTrackingFrontend.Pages
 {

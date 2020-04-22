@@ -20,18 +20,22 @@ namespace Backend.Controllers {
 
         // Localhost/ActiveMachines/
         [HttpGet]
-        public IOrderedQueryable Get()
+        public IQueryable<ActiveMachine> Get()
         {
             var query = from field in _libraryInterface.GetAllFields()
                         join machine in _libraryInterface.GetAllMachines()
                             on field.ActiveMachine.MachineId equals machine.Id
                         join activemachine in _libraryInterface.GetAllActiveMachines()
                             on machine.Id equals activemachine.MachineId
-                        select new { id = activemachine.Id, fieldname = field.Name, machinename = machine.Name, timeleft = activemachine.TimeLeft };
+                        select new ActiveMachine
+                        {
+                            MachineId = activemachine.Id, 
+                            field = new Field { Name = field.Name }, 
+                            machine = new Machine{ Name = machine.Name }, 
+                            TimeLeft = activemachine.TimeLeft
+                        };
 
-
-
-            return query.OrderBy(x => x.timeleft);
+            return query.OrderBy(x => x.TimeLeft);
         }
 
         [HttpPost]
@@ -49,7 +53,7 @@ namespace Backend.Controllers {
             
         }
 
-        // Start Machine
+        // Start machine
         // Show All Machines
 
     }

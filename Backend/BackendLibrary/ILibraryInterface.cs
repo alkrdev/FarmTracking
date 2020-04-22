@@ -34,7 +34,7 @@ namespace BackendLibrary {
         void DeleteActiveMachine(int activeMachineId);
 
 
-        // Field Information
+        // field Information
 
         DbSet<ActiveMachine> GetAllActiveMachines();
         DbSet<Machine> GetAllMachines();

@@ -32,8 +32,8 @@ namespace BackendLibrary.Migrations
                     b.Property<int>("MachineId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("TimeLeft")
-                        .HasColumnType("datetime(6)");
+                    b.Property<TimeSpan>("TimeLeft")
+                        .HasColumnType("time(6)");
 
                     b.HasKey("Id");
 
@@ -45,7 +45,7 @@ namespace BackendLibrary.Migrations
                     b.ToTable("ActiveMachines");
                 });
 
-            modelBuilder.Entity("BackendLibrary.Models.Field", b =>
+            modelBuilder.Entity("BackendLibrary.Models.field", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,7 +61,7 @@ namespace BackendLibrary.Migrations
                     b.ToTable("Fields");
                 });
 
-            modelBuilder.Entity("BackendLibrary.Models.Machine", b =>
+            modelBuilder.Entity("BackendLibrary.Models.machine", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -75,8 +75,8 @@ namespace BackendLibrary.Migrations
                         .HasColumnType("varchar(60) CHARACTER SET utf8mb4")
                         .HasMaxLength(60);
 
-                    b.Property<DateTime>("RunTime")
-                        .HasColumnType("datetime(6)");
+                    b.Property<TimeSpan>("RunTime")
+                        .HasColumnType("time(6)");
 
                     b.HasKey("Id");
 
@@ -87,22 +87,22 @@ namespace BackendLibrary.Migrations
 
             modelBuilder.Entity("BackendLibrary.Models.ActiveMachine", b =>
                 {
-                    b.HasOne("BackendLibrary.Models.Field", "Field")
+                    b.HasOne("BackendLibrary.Models.field", "field")
                         .WithOne("ActiveMachine")
                         .HasForeignKey("BackendLibrary.Models.ActiveMachine", "FieldId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BackendLibrary.Models.Machine", "Machine")
+                    b.HasOne("BackendLibrary.Models.machine", "machine")
                         .WithMany()
                         .HasForeignKey("MachineId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("BackendLibrary.Models.Machine", b =>
+            modelBuilder.Entity("BackendLibrary.Models.machine", b =>
                 {
-                    b.HasOne("BackendLibrary.Models.Field", "Field")
+                    b.HasOne("BackendLibrary.Models.field", "field")
                         .WithMany()
                         .HasForeignKey("FieldId");
                 });
