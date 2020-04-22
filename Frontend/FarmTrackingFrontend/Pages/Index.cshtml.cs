@@ -31,7 +31,7 @@ namespace FarmTrackingFrontend.Pages
 
             if (response.IsSuccessStatusCode)
             {
-                var result = await response.Content.ReadAsAsync<IQueryable<ActiveMachine>>();
+                var result = await response.Content.ReadAsAsync<IEnumerable<ActiveMachine>>();
                 activeMachines = result.ToList();
             }
         }

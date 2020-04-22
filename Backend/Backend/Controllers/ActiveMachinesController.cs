@@ -20,7 +20,7 @@ namespace Backend.Controllers {
 
         // Localhost/ActiveMachines/
         [HttpGet]
-        public IQueryable<ActiveMachine> Get()
+        public IEnumerable<ActiveMachine> Get()
         {
             var query = from field in _libraryInterface.GetAllFields()
                         join machine in _libraryInterface.GetAllMachines()
