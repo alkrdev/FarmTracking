@@ -7,6 +7,6 @@ namespace FarmTrackingFrontend.Models
         public int Id { get; set; }
         public string MachineName { get; set; }
         public string FieldName { get; set; }
-        public DateTime TimeLeft { get; set; }
+        public TimeSpan TimeLeft { get; set; }
     }
 }

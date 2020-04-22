@@ -17,7 +17,7 @@ namespace BackendLibrary.Models {
         [DisplayName("Time Of Task")]
         [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Time)]
-        public DateTime RunTime { get; set; }
+        public TimeSpan RunTime { get; set; }
 
         [DisplayName("Field")]
         public Field Field { get; set; }

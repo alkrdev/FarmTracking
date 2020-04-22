@@ -22,7 +22,7 @@ namespace BackendLibrary.Models {
         [DisplayName("Time Left")]
         [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Time)]
-        public DateTime TimeLeft { get; set; }
+        public TimeSpan TimeLeft { get; set; }
         public bool Active { get; set; }
     }
 }
